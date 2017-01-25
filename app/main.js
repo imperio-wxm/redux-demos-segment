@@ -1,6 +1,12 @@
 import React from 'react'
 import { Button } from 'antd'
 import { render } from 'react-dom'
+import { createStore } from 'redux'
+import todoApp from './reducers/reducers.js'
+import App from './containers/App.js'
+
+//创建store Redux 应用只有一个单一的 store
+let store = createStore(todoApp)
 
 class AppTest extends React.Component {
     constructor(props) {
@@ -23,6 +29,7 @@ class AppTest extends React.Component {
             <Button type="ghost" icon="search">Search</Button>
             <Button type="dashed" shape="circle" icon="search" />
             <Button type="dashed" icon="search">Search</Button>
+            <App />
           </div>
         );
     }
