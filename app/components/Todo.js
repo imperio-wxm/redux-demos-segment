@@ -1,16 +1,17 @@
 import React, { Component, PropTypes } from 'react';
+import { Tag } from 'antd';
 
 export default class Todo extends Component {
   render() {
     return (
-      <li
+      <Tag color="#108ee9"
         onClick={this.props.onClick}
         style={{
           textDecoration: this.props.completed ? 'line-through' : 'none',
           cursor: this.props.completed ? 'default' : 'pointer'
         }}>
         {this.props.text}
-      </li>
+      </Tag>
     );
   }
 }

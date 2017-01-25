@@ -1,14 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import {findDOMNode} from 'react-dom'
+import { Input,Button } from 'antd'
 
 export default class AddTodo extends Component {
   render() {
     return (
       <div>
-        <input type='text' ref='input' />
-        <button onClick={e => this.handleClick(e)}>
+        <Input placeholder="Basic usage" ref='input' style={{width:200}}/>
+        <Button onClick={e => this.handleClick(e)}>
           Add
-        </button>
+        </Button>
       </div>
     );
   }
@@ -16,8 +17,10 @@ export default class AddTodo extends Component {
   handleClick(e) {
     const node = findDOMNode(this.refs.input);
     const text = node.value.trim();
-    this.props.onAddClick(text);
-    node.value = '';
+    if(text != "") {
+      this.props.onAddClick(text);
+      node.value = '';
+    }
   }
 }
 

@@ -4,13 +4,13 @@ import Todo from './Todo.js';
 export default class TodoList extends Component {
   render() {
     return (
-      <ul>
+      <div>
         {this.props.todos.map((todo, index) =>
           <Todo {...todo}
                 key={index}
                 onClick={() => this.props.onTodoClick(index)} />
         )}
-      </ul>
+      </div>
     )
   }
 }
