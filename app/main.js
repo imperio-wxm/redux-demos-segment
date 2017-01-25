@@ -4,6 +4,7 @@ import { render } from 'react-dom'
 import { createStore } from 'redux'
 import todoApp from './reducers/reducers.js'
 import App from './containers/App.js'
+import { Provider } from 'react-redux'
 
 //创建store Redux 应用只有一个单一的 store
 let store = createStore(todoApp)
@@ -29,7 +30,9 @@ class AppTest extends React.Component {
             <Button type="ghost" icon="search">Search</Button>
             <Button type="dashed" shape="circle" icon="search" />
             <Button type="dashed" icon="search">Search</Button>
-            <App />
+            <Provider store={store}>
+              <App />
+            </Provider>
           </div>
         );
     }
